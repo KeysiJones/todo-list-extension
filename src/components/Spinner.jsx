@@ -1,0 +1,1 @@
+export const Spinner = () => <span className="loading loading-xl loading-spinner text-accent"/>

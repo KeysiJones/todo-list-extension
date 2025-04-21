@@ -1,32 +1,26 @@
-import { useState } from 'react';
 import { TrashIcon } from '../assets/TrashIcon';
 
-export const Todo = ({ label, id, onRemove }) => {
-  const [checked, setChecked] = useState(false);
-    
+export const Todo = ({ id, label, done, onToggle, onRemove }) => {
   return (
-    <div
-      className='flex justify-start bg-gray-100 p-2 rounded-md'
-    >
+    <div className="flex justify-start bg-gray-50 p-2 rounded-md items-center">
       <input
         id={`todo-${id}`}
-        type='checkbox'
-        checked={checked}
-        onChange={() => setChecked((prevState) => !prevState)}
-        className='checkbox checkbox-sm checkbox-accent checked:text-white'
+        type="checkbox"
+        checked={done}
+        onChange={e => onToggle(e.target.checked)}
+        className="checkbox checkbox-sm checkbox-success checked:text-white"
       />
-      <div className='flex justify-between w-full'>
+      <div className="flex justify-between w-full">
         <label
-            htmlFor={`todo-${id}`}
-            class={`ml-2 text-md text-gray-600 font-serif capitalize ${
-            checked ? 'line-through' : ''
-            }`}
+          htmlFor={`todo-${id}`}
+          className={`ml-2 text-md text-gray-600 font-serif capitalize ${
+            done ? 'line-through' : ''
+          }`}
         >
-            {label}
+          {label}
         </label>
-        <TrashIcon color='red' onClick={onRemove}/>
+        <TrashIcon color="red" onClick={() => onRemove(id)} />
       </div>
     </div>
   );
 };
- 

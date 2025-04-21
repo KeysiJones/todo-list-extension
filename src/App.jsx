@@ -54,7 +54,7 @@ export default function App() {
   return (
     <div className='flex h-screen w-screen bg-gray-200 justify-center items-center'>
       <div className='flex flex-col justify-between bg-white min-w-[360px] w-full sm:w-[400px] sm:max-h-[500px] min-h-[400px] h-full sm:rounded-xl py-4 pb-0 shadow-2xl'>
-        <div className='p-4 gap-y-4 text-center scrollbar overflow-y-auto'>
+        <div className='flex flex-col p-4 gap-y-4 text-center scrollbar overflow-y-auto'>
           <span className='text-gray-600 font-serif text-center text-lg'>
             {date}
           </span>
@@ -64,7 +64,7 @@ export default function App() {
             }`}
           >
             {todoList.length === 0 && (
-              <p className='text-gray-600 italic font-thin'>
+              <p className='text-gray-600 italic font-thin text-sm'>
                 Pressione enter para adicionar uma tarefa...
               </p>
             )}

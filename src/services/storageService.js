@@ -2,21 +2,15 @@
 const STORAGE_KEY = 'todoList';
 
 export function loadTodos() {
-  try {
-    const json = localStorage.getItem(STORAGE_KEY);
-    return json ? JSON.parse(json) : [];
-  } catch {
-    console.warn('Failed to parse todos from localStorage');
-    return [];
-  }
+  return new Promise((resolve) => {
+    chrome.storage.local.get(['todos'], (result) => {
+      resolve(result.todos || []);
+    });
+  });
 }
 
 export function saveTodos(todos) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-  } catch {
-    console.error('Failed to save todos to localStorage');
-  }
+  chrome.storage.local.set({ todos });
 }
 
 export function clearTodos() {

@@ -1,9 +1,9 @@
 {
-  "name": "lista-de-tarefas",
+  "name": "todo-list-extension",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://KeysiJones.github.io/minimalistic-todo-list/",
+  "homepage": "https://KeysiJones.github.io/todo-list-extension/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

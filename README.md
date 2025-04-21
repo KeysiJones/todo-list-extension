@@ -1,12 +1,108 @@
-# React + Vite
+# Todo List Chrome Extension
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Todo List Chrome Extension built with React and Vite. This extension lets you add, toggle, and remove tasks, with persistent storage using `chrome.storage.local`.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Prerequisites
 
-## Expanding the ESLint configuration
+- **Node.js** (>=14.x)
+- **npm** (comes with Node.js)
+- **Google Chrome** (for extension testing)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repository** (or download the source):
+   ```bash
+   git clone <your-repo-url>
+   cd todo-list-extension
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server (optional)**:
+   ```bash
+   npm run dev
+   ```
+   This launches a local server, but note that for Chrome extensions you still need to build before testing in Chrome.
+
+---
+
+## 🏗️ Build for Production
+
+Generate the `dist/` folder which contains your compiled extension:
+```bash
+npm run build
+```
+This will produce:
+```
+dist/
+├─ index.html       ← (if you kept it)
+├─ popup.html       ← extension popup entry, with correct asset references
+├─ assets/…         ← compiled JS/CSS/images
+├─ manifest.json    ← copied from public/
+└─ icons/…          ← icon files
+```
+
+---
+
+## 📂 Load the Extension in Chrome
+
+1. Open **Chrome** and navigate to: 
+    ```chrome://extensions/```
+2. Enable **Developer mode** (toggle in the top-right).
+3. Click **Load unpacked** and select the `dist/` directory from your project.
+4. The extension should appear in your toolbar. Click its icon to open the Todo popup.
+
+---
+
+## 📁 Project Structure
+
+```
+todo-list-extension/
+├─ index.html          # (Optional) default Vite entry
+├─ popup.html          # Extension popup HTML entry
+├─ public/
+│  ├─ manifest.json    # Chrome manifest
+│  └─ icons/           # Extension icons
+├─ src/
+│  ├─ main.jsx         # Vite React entry point
+│  ├─ App.jsx          # Main app component
+│  ├─ components/
+│  │  └─ Todo.jsx      # Todo item component
+│  └─ services/
+│     └─ storageService.js  # chrome.storage wrapper
+├─ vite.config.js      # Vite build config (multi-page)
+├─ package.json        # npm scripts & dependencies
+└─ dist/               # Built output (after npm run build)
+```
+
+---
+
+## 🔧 Configuration
+
+- **`manifest.json`** (in `public/`):
+  - Defines extension metadata, icons, permissions, and popup.
+  - Uses `permissions: ["storage"]` to allow `chrome.storage.local`.
+
+- **`vite.config.js`**:
+  - Sets `base: './'` for relative asset paths in Chrome extension.
+  - Defines `popup.html` (and `index.html` if used) as Rollup inputs.
+  - Copies static files from `public/` into `dist/`.
+
+---
+
+## 🤝 Contributing
+
+Feel free to open issues or submit pull requests! Improvements, bug fixes, and feature ideas are welcome.
+
+---
+
+## 📜 License
+
+MIT © Jones Fernandes 2025

@@ -54,12 +54,12 @@ export default function App() {
   return (
     <div className='flex h-screen w-screen bg-gray-200 justify-center items-center'>
       <div className='flex flex-col justify-between bg-white min-w-[360px] w-full sm:w-[400px] sm:max-h-[500px] min-h-[400px] h-full sm:rounded-xl py-4 pb-0 shadow-2xl'>
-        <div className='p-4 gap-y-4 text-center'>
+        <div className='p-4 gap-y-4 text-center scrollbar overflow-y-auto'>
           <span className='text-gray-600 font-serif text-center text-lg'>
             {date}
           </span>
           <div
-            className={`flex flex-col scrollbar gap-y-1.5 pb-4 rounded-md overflow-y-auto ${
+            className={`flex flex-col gap-y-1.5 pb-4 rounded-md ${
               todoList.length > 1 ? 'pr-1' : ''
             }`}
           >

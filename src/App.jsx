@@ -39,7 +39,6 @@ export default function App() {
 
   const onRemoveTodo = (id) => {
     const newList = todoList.filter((todo) => todo.id !== id);
-    console.log({ todoList, newList, id });
     setTodoList(newList);
     saveTodos(newList);
   };
@@ -53,45 +52,47 @@ export default function App() {
 
   return (
     <div className='flex h-screen w-screen bg-gray-200 justify-center items-center'>
-      <div className='flex flex-col gap-y-1.5 justify-between bg-white min-w-[360px] w-full sm:w-[400px] sm:max-h-[500px] min-h-[400px] h-full sm:rounded-xl py-4 pb-0 shadow-2xl'>
-          <span className='text-gray-600 font-serif text-center text-lg'>
-            {date}
-          </span>
-        <div className='flex flex-col p-4 scrollbar overflow-y-auto'>
-          <div
-            className={`flex flex-col gap-y-1.5 pb-4 rounded-md ${
-              todoList.length > 1 ? 'pr-1' : ''
-            }`}
-          >
-            {todoList.length === 0 && (
-              <p className='text-gray-600 italic font-thin text-sm'>
-                Pressione enter para adicionar uma tarefa...
-              </p>
-            )}
-            {todoList.map(({ id, label, done }) => (
-              <Todo
-                key={id}
-                id={id}
-                label={label}
-                done={done}
-                onToggle={(checked) => {
-                  const list = todoList;
-                  const newTodoList = list.map((t) =>
-                    t.id === id ? { ...t, done: checked } : t
-                  );
-                  setTodoList(newTodoList);
-                  saveTodos(newTodoList);
-                }}
-                onRemove={onRemoveTodo}
-              />
-            ))}
+      <div className='flex flex-col gap-y-1.5 bg-white min-w-[360px] w-full sm:w-[400px] sm:max-h-[500px] min-h-[400px] h-full sm:rounded-t-xl py-4 pb-0 shadow-2xl'>
+        <span className='text-gray-600 font-serif text-center text-lg'>
+          {date}
+        </span>
+        <div className='flex flex-col justify-between h-full'>
+          <div className='scrollbar overflow-y-auto'>
+            <div className='p-3'>
+              <div
+                className={`flex flex-col scrollbar overflow-y-auto gap-y-1.5 pb-4 rounded-md ${
+                  todoList.length > 1 ? 'pr-1' : ''
+                }`}
+              >
+                {todoList.length === 0 && (
+                  <p className='text-gray-600 italic font-thin text-sm text-center'>
+                    Pressione enter para adicionar uma tarefa...
+                  </p>
+                )}
+                {todoList.map(({ id, label, done }) => (
+                  <Todo
+                    key={id}
+                    id={id}
+                    label={label}
+                    done={done}
+                    onToggle={(checked) => {
+                      const list = todoList;
+                      const newTodoList = list.map((t) =>
+                        t.id === id ? { ...t, done: checked } : t
+                      );
+                      setTodoList(newTodoList);
+                      saveTodos(newTodoList);
+                    }}
+                    onRemove={onRemoveTodo}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-        <div>
           <input
             type='text'
             placeholder='Nova Tarefa...'
-            className='input p-2 w-full bg-gray-500 rounded-none focus:outline-none focus:outline-0'
+            className='input p-3 w-full bg-gray-500 rounded-none focus:outline-none focus:outline-0'
             value={newTodo}
             onChange={(e) => setNewTodo(e.target.value)}
             onKeyDown={(e) => {

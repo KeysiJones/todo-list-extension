@@ -39,16 +39,17 @@ export default function App() {
 
   const onRemoveTodo = (id) => {
     const newList = todoList.filter((todo) => todo.id !== id);
-    console.log({ todoList, newList, id })
+    console.log({ todoList, newList, id });
     setTodoList(newList);
     saveTodos(newList);
   };
 
-  if (loading) return (
-    <div className='h-screen w-screen bg-gray-100 flex justify-center'>
-      <Spinner/>
-    </div>
-  )
+  if (loading)
+    return (
+      <div className='h-screen w-screen bg-gray-100 flex justify-center'>
+        <Spinner />
+      </div>
+    );
 
   return (
     <div className='flex h-screen w-screen bg-gray-200 justify-center items-center'>
@@ -59,7 +60,7 @@ export default function App() {
         <input
           type='text'
           placeholder='Nova Tarefa...'
-          className='input p-4 w-full bg-gray-400'
+          className='input p-2 w-full bg-gray-500'
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           onKeyDown={(e) => {
@@ -76,6 +77,9 @@ export default function App() {
             todoList.length > 1 ? 'pr-1' : ''
           }`}
         >
+          {todoList.length === 0 && (
+            <p className='text-gray-600 italic font-thin'>Pressione enter para adicionar uma tarefa...</p>
+          )}
           {todoList.map(({ id, label, done }) => (
             <Todo
               key={id}
@@ -83,8 +87,10 @@ export default function App() {
               label={label}
               done={done}
               onToggle={(checked) => {
-                const list = todoList
-                const newTodoList = list.map((t) => (t.id === id ? { ...t, done: checked } : t))
+                const list = todoList;
+                const newTodoList = list.map((t) =>
+                  t.id === id ? { ...t, done: checked } : t
+                );
                 setTodoList(newTodoList);
                 saveTodos(newTodoList);
               }}

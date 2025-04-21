@@ -31,7 +31,7 @@ export default function App() {
       done: false,
     };
 
-    const newList = [...todoList];
+    const newList = todoList;
     newList.push(todo);
     setTodoList(newList);
     saveTodos(newList);
@@ -82,11 +82,12 @@ export default function App() {
               id={id}
               label={label}
               done={done}
-              onToggle={(checked) =>
-                setTodoList((prev) =>
-                  prev.map((t) => (t.id === id ? { ...t, done: checked } : t))
-                )
-              }
+              onToggle={(checked) => {
+                const list = todoList
+                const newTodoList = list.map((t) => (t.id === id ? { ...t, done: checked } : t))
+                setTodoList(newTodoList);
+                saveTodos(newTodoList);
+              }}
               onRemove={onRemoveTodo}
             />
           ))}

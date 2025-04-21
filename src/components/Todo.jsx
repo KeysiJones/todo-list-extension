@@ -8,13 +8,13 @@ export const Todo = ({ id, label, done, onToggle, onRemove }) => {
         type="checkbox"
         checked={done}
         onChange={e => onToggle(e.target.checked)}
-        className="checkbox checkbox-sm checkbox-success checked:text-white"
+        className="checkbox checkbox-xs checkbox-neutral bg-white border-gray-400 checked:text-white checked:bg-accent checked:border-accent"
       />
       <div className="flex justify-between w-full">
         <label
           htmlFor={`todo-${id}`}
-          className={`ml-2 text-md text-gray-600 font-serif capitalize ${
-            done ? 'line-through' : ''
+          className={`ml-2 text-sm text-gray-600 font-serif capitalize ${
+            done && 'line-through'
           }`}
         >
           {label}

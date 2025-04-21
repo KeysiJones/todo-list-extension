@@ -53,7 +53,7 @@ export default function App() {
 
   return (
     <div className='flex h-screen w-screen bg-gray-200 justify-center items-center'>
-      <div className='flex flex-col bg-white min-w-[400px] max-h-[500px] h-full rounded-xl p-4 gap-y-4 shadow-2xl'>
+      <div className='flex flex-col bg-white min-w-[360px] w-full sm:w-[400px] sm:max-h-[500px] h-full sm:rounded-xl p-4 gap-y-4 shadow-2xl'>
         <span className='text-gray-600 font-serif text-center text-lg'>
           {date}
         </span>

@@ -52,13 +52,13 @@ export default function App() {
 
   return (
     <div className='flex h-screen w-screen max-w-[400px] bg-gray-200 justify-center items-center max-h-[400px]'>
-      <div className='flex flex-col gap-y-3 bg-white min-w-[360px] h-full w-[400px] min-h-[400px] max-h-[400px] rounded-t-xl pt-4 pb-0 shadow-2xl'>
+      <div className='flex flex-col gap-y-3 bg-white min-w-[360px] h-full w-[400px] min-h-[400px] max-h-[400px] pt-4 pb-0 shadow-2xl'>
         <span className='text-gray-600 font-serif text-center text-lg'>
           {date}
         </span>
-        <div className='flex flex-col gap-y-3 justify-between h-full'>
+        <div className='flex flex-col justify-between h-full'>
           <div
-            className={`flex flex-col gap-y-1.5 rounded-md scrollbar overflow-y-auto ${
+            className={`flex flex-col gap-y-1.5 rounded-md scrollbar overflow-y-auto max-h-[300px] ${
               todoList.length > 1 ? 'px-3' : ''
             }`}
           >

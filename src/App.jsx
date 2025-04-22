@@ -52,42 +52,38 @@ export default function App() {
 
   return (
     <div className='flex h-screen w-screen bg-gray-200 justify-center items-center'>
-      <div className='flex flex-col gap-y-1.5 bg-white min-w-[360px] w-full sm:w-[400px] sm:max-h-[400px] min-h-[400px] h-full sm:rounded-t-xl pt-4 pb-0 shadow-2xl'>
+      <div className='flex flex-col gap-y-3 bg-white min-w-[360px] w-[400px] h-full max-h-[400px] sm:rounded-t-xl pt-4 pb-0 shadow-2xl'>
         <span className='text-gray-600 font-serif text-center text-lg'>
           {date}
         </span>
-        <div className='flex flex-col gap-y-3 justify-between h-full'>
-          <div className='scrollbar overflow-y-auto'>
-            <div className='px-3'>
-              <div
-                className={`flex flex-col gap-y-1.5 rounded-md ${
-                  todoList.length > 1 ? 'pr-1' : ''
-                }`}
-              >
-                {todoList.length === 0 && (
-                  <p className='text-gray-600 italic font-thin text-sm text-center'>
-                    Pressione enter para adicionar uma tarefa...
-                  </p>
-                )}
-                {todoList.map(({ id, label, done }) => (
-                  <Todo
-                    key={id}
-                    id={id}
-                    label={label}
-                    done={done}
-                    onToggle={(checked) => {
-                      const list = todoList;
-                      const newTodoList = list.map((t) =>
-                        t.id === id ? { ...t, done: checked } : t
-                      );
-                      setTodoList(newTodoList);
-                      saveTodos(newTodoList);
-                    }}
-                    onRemove={onRemoveTodo}
-                  />
-                ))}
-              </div>
-            </div>
+        <div className='flex flex-col gap-y-3 max-h-[350px] justify-between h-full'>
+          <div
+            className={`flex flex-col gap-y-1.5 rounded-md scrollbar overflow-y-auto ${
+              todoList.length > 1 ? 'px-3' : ''
+            }`}
+          >
+            {todoList.length === 0 && (
+              <p className='text-gray-600 italic font-thin text-sm text-center'>
+                Pressione enter para adicionar uma tarefa...
+              </p>
+            )}
+            {todoList.map(({ id, label, done }) => (
+              <Todo
+                key={id}
+                id={id}
+                label={label}
+                done={done}
+                onToggle={(checked) => {
+                  const list = todoList;
+                  const newTodoList = list.map((t) =>
+                    t.id === id ? { ...t, done: checked } : t
+                  );
+                  setTodoList(newTodoList);
+                  saveTodos(newTodoList);
+                }}
+                onRemove={onRemoveTodo}
+              />
+            ))}
           </div>
           <input
             type='text'

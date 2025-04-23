@@ -1,13 +1,16 @@
 {
     "manifest_version": 3,
-    "name": "My Todo List",
+    "name": "Jones's Todo List",
     "version": "0.0.0.1",
     "description": "A simple todo list Chrome extension",
     "permissions": [
       "storage"
     ],
     "action": {
-      "default_popup": "popup.html"
-  }
+      "default_popup": "popup.html",
+      "default_title": "Todo List"
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
 }
-  

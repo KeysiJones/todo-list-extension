@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* See docs for more info about this custom variant 
+ https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+@custom-variant dark (&:where(.dark, .dark *));

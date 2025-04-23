@@ -1,17 +1,27 @@
-// storageService.js
 const STORAGE_KEY = 'todoList';
 
-export function loadTodos() {
-  return new Promise((resolve) => {
-    chrome.storage.local.get(['todos'], (result) => {
-      resolve(result.todos || []);
-    });
-  });
-}
+export const isChromeExtension = typeof chrome !== 'undefined' && chrome?.storage;
+console.log({ isChromeExtension })
 
-export function saveTodos(todos) {
-  chrome.storage.local.set({ todos });
-}
+export const loadTodos = async () => {
+  if (isChromeExtension) {
+    return new Promise((resolve) => {
+      chrome.storage.local.get([STORAGE_KEY], (result) => {
+        resolve(result.todos || []);
+      });
+    });
+  } else {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  }
+};
+
+export const saveTodos = async (todos) => {
+  if (isChromeExtension) {
+    chrome.storage.local.set({ todos });
+  } else {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+  }
+};
 
 export function clearTodos() {
     try {

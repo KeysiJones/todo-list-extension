@@ -7,7 +7,7 @@ export const loadTodos = async () => {
   if (isChromeExtension) {
     return new Promise((resolve) => {
       chrome.storage.local.get([STORAGE_KEY], (result) => {
-        resolve(result.todos || []);
+        resolve(result.todoList || []);
       });
     });
   } else {
@@ -15,11 +15,11 @@ export const loadTodos = async () => {
   }
 };
 
-export const saveTodos = async (todos) => {
+export const saveTodos = async (todoList) => {
   if (isChromeExtension) {
-    chrome.storage.local.set({ todos });
+    chrome.storage.local.set({ todoList });
   } else {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todoList));
   }
 };
 
@@ -27,6 +27,6 @@ export function clearTodos() {
     try {
       localStorage.removeItem(STORAGE_KEY);
     } catch {
-      console.error('Failed to clear todos from localStorage');
+      console.error('Failed to clear todoList from localStorage');
     }
   }

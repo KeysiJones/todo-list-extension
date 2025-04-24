@@ -1,7 +1,6 @@
 const STORAGE_KEY = 'todoList';
 
-export const isChromeExtension = typeof chrome !== 'undefined' && chrome?.storage;
-console.log({ isChromeExtension })
+export const isChromeExtension = typeof chrome !== 'undefined' && chrome.storage;
 
 export const loadTodos = async () => {
   if (isChromeExtension) {

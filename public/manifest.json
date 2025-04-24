@@ -4,7 +4,8 @@
     "version": "0.0.0.1",
     "description": "A simple todo list Chrome extension",
     "permissions": [
-      "storage"
+      "storage",
+      "alarms"
     ],
     "action": {
       "default_popup": "popup.html",

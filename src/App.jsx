@@ -57,6 +57,12 @@ export default function App() {
     saveTodos(newList);
   };
 
+  const onEditTodo = (id, label) => {
+    const newList = todoList.map(todo => todo.id === id ? { ...todo, label } : todo);
+    setTodoList(newList);
+    saveTodos(newList);
+  }
+
   const toggleDarkMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
@@ -104,6 +110,7 @@ export default function App() {
                   saveTodos(newTodoList);
                 }}
                 onRemove={onRemoveTodo}
+                onEdit={onEditTodo}
               />
             ))}
           </div>

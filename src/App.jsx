@@ -5,6 +5,7 @@ import { loadTodos, saveTodos } from './services/storageService';
 import { Spinner } from './components/Spinner';
 import { ThemeTogglerIcon } from './components/ThemeTogglerIcon';
 import { loadTheme, saveTheme } from './services/themeService';
+import { AddTodoButton } from './components/AddTodoButton';
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
@@ -70,6 +71,13 @@ export default function App() {
     saveTheme(newMode);
   };
 
+  const addNewTodo = () => {
+    const val = newTodo.trim();
+    if (!val) return;
+    addTodo(val);
+    setNewTodo('');
+  }
+
   if (loading)
     return (
       <div className='h-screen w-screen bg-gray-100 flex justify-center'>
@@ -114,21 +122,25 @@ export default function App() {
               />
             ))}
           </div>
-          <input
-            type='text'
-            placeholder='Nova Tarefa...'
-            className='input p-3 rounded-md w-full bg-gray-100 dark:bg-gray-600 focus:outline-none focus:outline-0'
-            value={newTodo}
-            onChange={(e) => setNewTodo(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                const val = newTodo.trim();
-                if (!val) return;
-                addTodo(val);
-                setNewTodo('');
-              }
-            }}
-          />
+          <div className='flex items-center gap-2'>
+            <input
+              type='text'
+              placeholder='Nova Tarefa...'
+              className='input p-3 rounded-md w-full bg-gray-100 dark:bg-gray-600 focus:outline-none focus:outline-0'
+              value={newTodo}
+              onChange={(e) => setNewTodo(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  addNewTodo();
+                }
+              }}
+            />
+            <AddTodoButton
+              onClick={() => {
+                addNewTodo();
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>

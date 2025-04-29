@@ -83,7 +83,7 @@ export default function App() {
         <button onClick={toggleDarkMode} className='absolute right-4.5'>
           <ThemeTogglerIcon darkMode={darkMode} />
         </button>
-        <span className='text-gray-600 pb-4 dark:text-gray-300 font-serif text-center text-lg'>
+        <span className='text-gray-600 pb-4 dark:text-white font-serif text-center text-lg'>
           {date}
         </span>
         <div className='flex flex-col justify-between h-full'>

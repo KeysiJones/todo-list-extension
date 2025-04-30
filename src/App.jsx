@@ -34,8 +34,8 @@ export default function App() {
     () =>
       new Date().toLocaleDateString('pt-BR', {
         day: '2-digit',
-        month: 'long',
-        year: 'numeric',
+        month: 'numeric',
+        weekday: 'long',
       }),
     []
   );
@@ -91,7 +91,7 @@ export default function App() {
         <button onClick={toggleDarkMode} className='absolute right-4.5'>
           <ThemeTogglerIcon darkMode={darkMode} />
         </button>
-        <span className='text-gray-600 pb-4 dark:text-white font-serif text-center text-lg'>
+        <span className='text-gray-600 pb-4 dark:text-white font-serif text-center text-lg capitalize'>
           {date}
         </span>
         <div className='flex flex-col justify-between h-full'>

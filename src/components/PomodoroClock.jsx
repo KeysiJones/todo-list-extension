@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { isChromeExtension } from '../services/storageService';
 
 export const PomodoroClock = () => {
   const [timeLeft, setTimeLeft] = useState(900); // 15 minutes in seconds
@@ -6,6 +7,8 @@ export const PomodoroClock = () => {
 
   useEffect(() => {
     const updateTimer = () => {
+      if (!isChromeExtension) return;
+      // Check if the runtime and sendMessage are available
       if (chrome.runtime && chrome.runtime.sendMessage) {
         chrome.runtime.sendMessage({ type: 'getPomodoroState' }, (response) => {
           if (response) {
@@ -73,7 +76,7 @@ export const PomodoroClock = () => {
       <div className='flex'>
         <button
           onClick={isRunning ? stopPomodoro : startPomodoro}
-          className='p-2 rounded-full dark:bg-gray-600 bg-gray-500 text-white focus:outline-none'
+          className='p-2 rounded-full dark:bg-gray-600 bg-blue-00 text-white focus:outline-none'
         >
           {isRunning ? (
             <svg

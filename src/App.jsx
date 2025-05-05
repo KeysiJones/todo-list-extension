@@ -6,6 +6,7 @@ import { Spinner } from './components/Spinner';
 import { ThemeTogglerIcon } from './components/ThemeTogglerIcon';
 import { loadTheme, saveTheme } from './services/themeService';
 import { AddTodoButton } from './components/AddTodoButton';
+import { PomodoroClock } from './components/PomodoroClock';
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
@@ -33,8 +34,6 @@ export default function App() {
   const date = useMemo(
     () =>
       new Date().toLocaleDateString('pt-BR', {
-        day: '2-digit',
-        month: 'numeric',
         weekday: 'long',
       }),
     []
@@ -78,6 +77,9 @@ export default function App() {
     setNewTodo('');
   }
 
+  const isTodoListEmpty = todoList.length === 0;
+  const showScrollbar = todoList.length >= 8;
+
   if (loading)
     return (
       <div className='h-screen w-screen bg-gray-100 flex justify-center'>
@@ -86,20 +88,21 @@ export default function App() {
     );
 
   return (
-    <div className='h-screen w-screen bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 flex justify-center items-center'>
-      <div className='flex relative px-3 flex-col bg-white dark:bg-gray-700 min-w-[360px] h-full w-[400px] min-h-[400px] max-h-[400px] pt-4 pb-3 shadow-2xl'>
+    <div className='h-screen w-screen bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex justify-center items-center'>
+      <div className='flex gap-y-3 relative px-4 flex-col bg-white dark:bg-gray-800 min-w-[400px] h-full w-[400px] min-h-[500px] max-h-[500px] pt-4 pb-3'>
+        <span className='text-gray-600 font-semibold dark:text-white text-center text-xl capitalize'>
+          {date}
+        </span>
         <button onClick={toggleDarkMode} className='absolute right-4.5'>
           <ThemeTogglerIcon darkMode={darkMode} />
         </button>
-        <span className='text-gray-600 pb-4 dark:text-white font-serif text-center text-lg capitalize'>
-          {date}
-        </span>
+        <PomodoroClock />
         <div className='flex flex-col justify-between h-full'>
           <div
-            className={`flex flex-col gap-y-1.5 rounded-md scrollbar overflow-y-auto max-h-[280px]`}
+            className={`flex flex-col gap-y-2 rounded-md scrollbar ${showScrollbar && 'pr-1'} overflow-y-auto max-h-[330px]`}
           >
-            {todoList.length === 0 && (
-              <p className='text-gray-600 dark:text-gray-400 italic font-thin text-sm text-center'>
+            {isTodoListEmpty && (
+              <p className='text-gray-600 dark:text-gray-200 italic font-thin text-lg text-center'>
                 Pressione enter para adicionar uma tarefa...
               </p>
             )}
@@ -126,7 +129,7 @@ export default function App() {
             <input
               type='text'
               placeholder='Nova Tarefa...'
-              className='input p-3 rounded-md w-full bg-gray-100 dark:bg-gray-600 focus:outline-none focus:outline-0'
+              className='input p-3 rounded-md w-full bg-white dark:bg-gray-700 focus:outline-none focus:outline-0 border-1 border-gray-200 dark:border-gray-500'
               value={newTodo}
               onChange={(e) => setNewTodo(e.target.value)}
               onKeyDown={(e) => {

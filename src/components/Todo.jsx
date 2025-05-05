@@ -25,7 +25,7 @@ export const Todo = ({ id, label, done, onToggle, onRemove, onEdit }) => {
     }
   };
   return (
-    <div className='flex justify-start bg-gray-50 dark:bg-gray-600 p-2 rounded-md items-center'>
+    <div className='flex justify-start bg-gray-50 dark:bg-gray-700 p-2 rounded-md items-center dark:border-gray-500 border-1 border-gray-300'>
       <input
         id={`todo-${id}`}
         type='checkbox'
@@ -41,16 +41,14 @@ export const Todo = ({ id, label, done, onToggle, onRemove, onEdit }) => {
             onChange={(e) => setEditedLabel(e.target.value)}
             onKeyDown={handleKeyDown}
             onBlur={handleSave}
-            className='capitalize flex-1 px-1 ml-1 rounded focus:outline-none text-sm font-serif'
+            className='capitalize px-1 ml-1 rounded focus:outline-none text-base'
             autoFocus
           />
         ) : (
           <label
             onClick={handleEdit}
             htmlFor={`todo-${id}`}
-            className={`ml-2 text-sm w-full text-gray-600 dark:text-white font-serif capitalize ${
-              done && 'line-through'
-            }`}
+            className={`ml-2 text-base w-full dark:text-white capitalize`}
           >
             {label}
           </label>

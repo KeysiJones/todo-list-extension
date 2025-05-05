@@ -9,12 +9,16 @@ export default [
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: { ...globals.browser, chrome: 'readonly' }, // Define chrome as a global variable
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
       },
+    },
+    env: {
+      browser: true,
+      webextensions: true, // Add this to recognize Chrome extension globals
     },
     plugins: {
       'react-hooks': reactHooks,

@@ -5,7 +5,8 @@
     "description": "A simple todo list Chrome extension",
     "permissions": [
       "storage",
-      "alarms"
+      "alarms",
+      "notifications"
     ],
     "action": {
       "default_popup": "popup.html",

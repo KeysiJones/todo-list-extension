@@ -21,7 +21,7 @@ body {
 
 div.scrollbar {
   overflow-y: auto;
-  scrollbar-color: #99a1af #f1f1f1; /* Firefox */
+  scrollbar-color: var(--color-gray-400) white; /* Firefox */
   scrollbar-width: thin; /* Firefox */
 }
 
@@ -31,10 +31,24 @@ div.scrollbar::-webkit-scrollbar {
 }
 
 div.scrollbar::-webkit-scrollbar-track {
-  background: #99a1af;
+  background: var(--color-gray-700);
 }
 
 div.scrollbar::-webkit-scrollbar-thumb {
-  background: #99a1af;
+  background: white;
+  border-radius: 6px;
+}
+
+.dark .scrollbar {
+  scrollbar-color: white var(--color-gray-700); /* Firefox */
+  scrollbar-width: thin; /* Firefox */
+}
+
+.dark div.scrollbar::-webkit-scrollbar-track {
+  background: white;
+}
+
+.dark div.scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-gray-700);
   border-radius: 6px;
 }

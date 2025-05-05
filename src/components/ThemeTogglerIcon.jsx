@@ -1,32 +1,59 @@
 export const ThemeTogglerIcon = ({ darkMode }) =>
   darkMode ? (
     <svg
-      xmlns='http://www.w3.org/2000/svg'
-      fill='none'
+      width='24'
+      height='24'
       viewBox='0 0 24 24'
-      strokeWidth={1.5}
-      stroke='currentColor'
-      className='size-6'
+      fill='none'
+      className='cursor-pointer'
+      xmlns='http://www.w3.org/2000/svg'
     >
-      <path
-        strokeLinecap='round'
-        strokeLinejoin='round'
-        d='M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z'
+      <circle cx='12' cy='12' r='5' fill='gold' />
+      <line x1='12' y1='1' x2='12' y2='4' stroke='gold' stroke-width='2' />
+      <line x1='12' y1='20' x2='12' y2='23' stroke='gold' stroke-width='2' />
+      <line
+        x1='4.22'
+        y1='4.22'
+        x2='6.34'
+        y2='6.34'
+        stroke='gold'
+        stroke-width='2'
+      />
+      <line
+        x1='17.66'
+        y1='17.66'
+        x2='19.78'
+        y2='19.78'
+        stroke='gold'
+        stroke-width='2'
+      />
+      <line x1='1' y1='12' x2='4' y2='12' stroke='gold' stroke-width='2' />
+      <line x1='20' y1='12' x2='23' y2='12' stroke='gold' stroke-width='2' />
+      <line
+        x1='4.22'
+        y1='19.78'
+        x2='6.34'
+        y2='17.66'
+        stroke='gold'
+        stroke-width='2'
+      />
+      <line
+        x1='17.66'
+        y1='6.34'
+        x2='19.78'
+        y2='4.22'
+        stroke='gold'
+        stroke-width='2'
       />
     </svg>
   ) : (
     <svg
-      xmlns='http://www.w3.org/2000/svg'
-      fill='none'
+      width='24'
+      height='24'
       viewBox='0 0 24 24'
-      strokeWidth={1.5}
-      stroke='currentColor'
-      className='size-6'
+      className='fill-gray-500 size-7 cursor-pointer'
+      xmlns='http://www.w3.org/2000/svg'
     >
-      <path
-        strokeLinecap='round'
-        strokeLinejoin='round'
-        d='M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z'
-      />
+      <path d='M21 12.79C20.24 13.12 19.42 13.3 18.57 13.3C14.63 13.3 11.3 9.97 11.3 6.03C11.3 5.18 11.48 4.36 11.81 3.6C8.13 4.42 5.5 7.74 5.5 11.63C5.5 16.02 9.11 19.63 13.5 19.63C17.39 19.63 20.71 17 21 13.32V12.79Z' />
     </svg>
   );

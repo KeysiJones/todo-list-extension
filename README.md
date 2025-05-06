@@ -5,7 +5,7 @@ A simple Todo List Chrome Extension built with React and Vite. This extension le
 ---
 
 ## Demo
-![0505-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ae0dd702-e24e-4c4d-9a5f-f4c23d9ad8b5)
+https://github.com/user-attachments/assets/5b155214-980c-4d0a-85de-68dc36860816
 
 Online APP: https://todo-list-extension-two.vercel.app/
 

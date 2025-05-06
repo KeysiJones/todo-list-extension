@@ -1,6 +1,6 @@
 # Todo List Chrome Extension
 
-A simple Todo List Chrome Extension built with React and Vite. This extension lets you add, toggle, and remove tasks, with persistent storage using `chrome.storage.local`.
+A simple Todo List Chrome Extension built with React and Vite. This extension lets you add, toggle, edit and remove tasks, with persistent storage using `chrome.storage.local` and notifications using `chrome.notifications`.
 
 ---
 
@@ -21,7 +21,7 @@ Online APP: https://todo-list-extension-two.vercel.app/
 
 1. **Clone the repository** (or download the source):
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/KeysiJones/todo-list-extension/
    cd todo-list-extension
    ```
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { isChromeExtension } from '../services/storageService';
 
 export const PomodoroClock = () => {
-  const [timeLeft, setTimeLeft] = useState(900); // 15 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(1500); // 25 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {

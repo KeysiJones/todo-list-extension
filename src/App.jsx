@@ -89,7 +89,7 @@ export default function App() {
 
   return (
     <div className='h-screen w-screen bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex justify-center items-center'>
-      <div className='flex gap-y-3 relative px-4 flex-col bg-white dark:bg-gray-800 min-w-[400px] h-full w-[400px] min-h-[500px] max-h-[500px] pt-4 pb-3'>
+      <div className='flex gap-y-3 relative px-4 flex-col bg-white dark:bg-gray-800 min-w-[350px] h-full w-[400px] min-h-[500px] max-h-[500px] pt-4 pb-3'>
         <span className='text-gray-600 font-semibold dark:text-white text-center text-xl capitalize'>
           {date}
         </span>

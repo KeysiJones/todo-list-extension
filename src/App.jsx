@@ -129,7 +129,7 @@ export default function App() {
             <input
               type='text'
               placeholder='Nova Tarefa...'
-              className='input p-3 rounded-md w-full bg-white dark:bg-gray-700 focus:outline-none focus:outline-0 border-1 border-gray-200 dark:border-gray-500'
+              className='input p-3 text-base rounded-md w-full bg-white dark:bg-gray-700 focus:outline-none focus:outline-0 border-1 border-gray-200 dark:border-gray-500'
               value={newTodo}
               onChange={(e) => setNewTodo(e.target.value)}
               onKeyDown={(e) => {

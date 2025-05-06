@@ -41,14 +41,14 @@ export const Todo = ({ id, label, done, onToggle, onRemove, onEdit }) => {
             onChange={(e) => setEditedLabel(e.target.value)}
             onKeyDown={handleKeyDown}
             onBlur={handleSave}
-            className='capitalize px-1 ml-1 rounded focus:outline-none text-base'
+            className='capitalize px-1 mx-1 rounded focus:outline-none text-base w-full'
             autoFocus
           />
         ) : (
           <label
             onClick={handleEdit}
             htmlFor={`todo-${id}`}
-            className={`ml-2 text-base w-full dark:text-white capitalize`}
+            className={`mx-2 text-base w-full dark:text-white capitalize`}
           >
             {label}
           </label>

@@ -25,7 +25,7 @@ export const Todo = ({ id, label, done, onToggle, onRemove, onEdit }) => {
     }
   };
   return (
-    <div className='flex justify-start bg-gray-50 dark:bg-gray-700 p-2 rounded-md items-center dark:border-gray-500 border-1 border-gray-300'>
+    <div className='flex justify-start bg-gray-100 dark:bg-gray-700 p-2 rounded-md items-center dark:border-none'>
       <input
         id={`todo-${id}`}
         type='checkbox'

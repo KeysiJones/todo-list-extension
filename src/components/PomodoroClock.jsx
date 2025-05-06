@@ -76,7 +76,7 @@ export const PomodoroClock = () => {
       <div className='flex'>
         <button
           onClick={isRunning ? stopPomodoro : startPomodoro}
-          className='p-2 rounded-full dark:bg-gray-600 bg-blue-00 text-white focus:outline-none'
+          className='p-2 rounded-full bg-gray-500 dark:bg-gray-600 text-white focus:outline-none'
         >
           {isRunning ? (
             <svg

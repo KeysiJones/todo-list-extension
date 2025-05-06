@@ -38,7 +38,7 @@ export const PomodoroClock = () => {
   }, []);
 
   const startPomodoro = () => {
-    chrome.runtime.sendMessage({ type: 'startPomodoro', duration: 1 });
+    chrome.runtime.sendMessage({ type: 'startPomodoro', duration: 25 });
   };
 
   const stopPomodoro = () => {

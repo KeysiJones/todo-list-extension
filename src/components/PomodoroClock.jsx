@@ -76,7 +76,7 @@ export const PomodoroClock = () => {
       <div className='flex'>
         <button
           onClick={isRunning ? stopPomodoro : startPomodoro}
-          className='p-2 rounded-full bg-gray-100 dark:bg-gray-600 text-white focus:outline-none'
+          className='p-2 rounded-full bg-gray-100 dark:bg-gray-600 focus:outline-none'
         >
           {isRunning ? (
             <svg
@@ -85,7 +85,7 @@ export const PomodoroClock = () => {
               viewBox='0 0 24 24'
               strokeWidth={1.5}
               stroke='currentColor'
-              className='size-6 cursor-pointer'
+              className='size-6 fill-gray-500 dark:fill-gray-100 cursor-pointer'
             >
               <path
                 strokeLinecap='round'

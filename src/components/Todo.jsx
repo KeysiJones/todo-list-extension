@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { TrashIcon } from '../assets/TrashIcon';
+import { TrashIcon } from './TrashIcon';
+import { PencilIcon } from './PencilIcon';
 
 export const Todo = ({ id, label, done, onToggle, onRemove, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -53,7 +54,7 @@ export const Todo = ({ id, label, done, onToggle, onRemove, onEdit }) => {
             {label}
           </label>
         )}
-        <TrashIcon color='red' onClick={() => onRemove(id)} />
+        {isEditing ? <PencilIcon /> : <TrashIcon color='red' onClick={() => onRemove(id)} />}
       </div>
     </div>
   );
